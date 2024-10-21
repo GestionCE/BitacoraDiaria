@@ -1,13 +1,8 @@
-<html w-tid="0"><head w-tid="1"><style>html{min-height:100%}.ctxmenu{position:fixed;border:1px solid #999;padding:2px 0;box-shadow:#aaa 3px 3px 3px;background:#fff;margin:0;z-index:9999;overflow-y:auto;font:15px Verdana, sans-serif;box-sizing:border-box}.ctxmenu li{margin:1px 0;display:block;position:relative;user-select:none}.ctxmenu li.heading{font-weight:bold;margin-left:-5px}.ctxmenu li span{display:block;padding:2px 20px;cursor:default}.ctxmenu li a{color:inherit;text-decoration:none}.ctxmenu li.icon{padding-left:15px}.ctxmenu img.icon{position:absolute;width:18px;left:10px;top:2px}.ctxmenu li.disabled{color:#ccc}.ctxmenu li.divider{border-bottom:1px solid #aaa;margin:5px 0}.ctxmenu li.interactive:hover{background:rgba(0, 0, 0, .1)}.ctxmenu li.submenu::after{content:"";position:absolute;display:block;top:0;bottom:0;right:.4em;margin:auto .1rem auto auto;border-right:1px solid #000;border-top:1px solid #000;transform:rotate(45deg);width:.3rem;height:.3rem}.ctxmenu li.submenu.disabled::after{border-color:#ccc}</style><base href="" simulated-href="https://educacion.gob.sv/gestion-centros/" w-tid="2">
-<link rel="stylesheet" href="/fonts.css?v=8fc91ace388a1aa116837a393acde6bf7ed9cad3">
-<link rel="stylesheet" href="/ctxmenu.css?v=8fc91ace388a1aa116837a393acde6bf7ed9cad3">
-
-
-
-<meta charset="UTF-8" w-tid="3">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" w-tid="4">
-<title w-tid="5">Gestión de Centros Educativos - Bitácora Diaria</title>
-<style w-tid="6">
+<html><head><base href="https://educacion.gob.sv/gestion-centros/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de Centros Educativos - Bitácora Diaria</title>
+<style>
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -15,17 +10,20 @@
     padding: 20px;
     background-color: #8fe3ff; /* Silverpine Cyan */
   }
-  h1, h2 {
-    color: #005a80;
-    text-align: center;
-  }
-  form, #historico, #consulta {
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 800px;
-    margin: 20px auto;
+  }
+  h1, h2 {
+    color: #0056b3;
+    text-align: center;
+  }
+  form {
+    margin-top: 20px;
   }
   label {
     display: block;
@@ -40,29 +38,28 @@
     border-radius: 4px;
     box-sizing: border-box;
   }
-  button {
-    background-color: #005a80;
+  input[type="file"] {
+    margin-bottom: 15px;
+  }
+  input[type="submit"], button {
+    background-color: #0056b3;
     color: #ffffff;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    margin-right: 10px;
   }
-  button:hover {
-    background-color: #003d54;
+  input[type="submit"]:hover, button:hover {
+    background-color: #003d82;
   }
-  #registros {
+  #registros, #historico {
     margin-top: 30px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
   }
   th, td {
     padding: 12px;
@@ -70,144 +67,138 @@
     border-bottom: 1px solid #ddd;
   }
   th {
-    background-color: #005a80;
+    background-color: #0056b3;
     color: #ffffff;
   }
 </style>
 </head>
-<body w-tid="7">
-  <h1 w-tid="8">Gestión de Centros Educativos</h1>
-  <h2 w-tid="9">(Bitácora Diaria)</h2>
-  
-  <form id="registroVisita" w-tid="10">
-    <label for="codigoCentro" w-tid="11">Código de Centro Escolar:</label>
-    <input type="text" id="codigoCentro" required="" w-tid="12">
+<body>
+  <div class="container">
+    <h1>Gestión de Centros Educativos</h1>
+    <h2>(Bitácora Diaria)</h2>
     
-    <label for="nombreCentro" w-tid="13">Nombre del Centro Escolar:</label>
-    <input type="text" id="nombreCentro" required="" w-tid="14">
-    
-    <label for="departamento" w-tid="15">Departamento:</label>
-    <select id="departamento" required="" w-tid="16">
-      <option value="" w-tid="17">Seleccione un departamento</option>
-      <option value="Ahuachapán" w-tid="18">Ahuachapán</option>
-      <option value="Cabañas" w-tid="19">Cabañas</option>
-      <option value="Chalatenango" w-tid="20">Chalatenango</option>
-      <option value="Cuscatlán" w-tid="21">Cuscatlán</option>
-      <option value="La Libertad" w-tid="22">La Libertad</option>
-      <option value="La Paz" w-tid="23">La Paz</option>
-      <option value="La Unión" w-tid="24">La Unión</option>
-      <option value="Morazán" w-tid="25">Morazán</option>
-      <option value="San Miguel" w-tid="26">San Miguel</option>
-      <option value="San Salvador" w-tid="27">San Salvador</option>
-      <option value="Santa Ana" w-tid="28">Santa Ana</option>
-      <option value="San Vicente" w-tid="29">San Vicente</option>
-      <option value="Sonsonate" w-tid="30">Sonsonate</option>
-      <option value="Usulután" w-tid="31">Usulután</option>
-    </select>
-    
-    <label for="municipio" w-tid="32">Municipio:</label>
-    <select id="municipio" required="" w-tid="33">
-      <option value="" w-tid="34">Seleccione un municipio</option>
-    </select>
-    
-    <label for="distrito" w-tid="35">Distrito:</label>
-    <select id="distrito" required="" w-tid="36">
-      <option value="" w-tid="37">Seleccione un distrito</option>
-      <option value="Chalatenango Norte" w-tid="38">Chalatenango Norte</option>
-      <option value="Chalatenango Centro" w-tid="39">Chalatenango Centro</option>
-      <option value="Chalatenango Sur" w-tid="40">Chalatenango Sur</option>
-    </select>
-    
-    <label for="nombreDirector" w-tid="41">Nombre del Director:</label>
-    <input type="text" id="nombreDirector" required="" w-tid="42">
-    
-    <label for="telefono" w-tid="43">Teléfono:</label>
-    <input type="tel" id="telefono" required="" w-tid="44">
-    
-    <label for="fecha" w-tid="45">Fecha:</label>
-    <input type="date" id="fecha" required="" w-tid="46">
-    
-    <label for="motivoVisita" w-tid="47">Motivo de la Visita:</label>
-    <textarea id="motivoVisita" required="" w-tid="48"></textarea>
-    
-    <label for="tecnicoResponsable" w-tid="49">Técnico Responsable de la visita:</label>
-    <input type="text" id="tecnicoResponsable" required="" w-tid="50">
-    
-    <label for="imagen1" w-tid="51">Imagen 1 (JPEG o JPG):</label>
-    <input type="file" id="imagen1" accept=".jpeg,.jpg" w-tid="52">
-    
-    <label for="imagen2" w-tid="53">Imagen 2 (JPEG o JPG):</label>
-    <input type="file" id="imagen2" accept=".jpeg,.jpg" w-tid="54">
-    
-    <button type="submit" id="guardar" w-tid="55">Guardar</button>
-    <button type="button" id="modificar" w-tid="56">Modificar</button>
-    <button type="button" id="eliminar" w-tid="57">Eliminar</button>
-    <button type="button" id="imprimir" w-tid="58">Imprimir Histórico</button>
-  </form>
+    <form id="registroVisita">
+      <label for="codigoCentro">Código de Centro Escolar:</label>
+      <input type="text" id="codigoCentro" required>
+      
+      <label for="nombreCentro">Nombre del Centro Escolar:</label>
+      <input type="text" id="nombreCentro" required>
+      
+      <label for="departamento">Departamento:</label>
+      <select id="departamento" required>
+        <option value="">Seleccione un departamento</option>
+        <option value="Ahuachapán">Ahuachapán</option>
+        <option value="Cabañas">Cabañas</option>
+        <option value="Chalatenango">Chalatenango</option>
+        <option value="Cuscatlán">Cuscatlán</option>
+        <option value="La Libertad">La Libertad</option>
+        <option value="La Paz">La Paz</option>
+        <option value="La Unión">La Unión</option>
+        <option value="Morazán">Morazán</option>
+        <option value="San Miguel">San Miguel</option>
+        <option value="San Salvador">San Salvador</option>
+        <option value="Santa Ana">Santa Ana</option>
+        <option value="San Vicente">San Vicente</option>
+        <option value="Sonsonate">Sonsonate</option>
+        <option value="Usulután">Usulután</option>
+      </select>
+      
+      <label for="municipio">Municipio:</label>
+      <select id="municipio" required>
+        <option value="">Seleccione un municipio</option>
+      </select>
+      
+      <label for="distrito">Distrito:</label>
+      <select id="distrito" required>
+        <option value="">Seleccione un distrito</option>
+        <option value="Chalatenango Norte">Chalatenango Norte</option>
+        <option value="Chalatenango Centro">Chalatenango Centro</option>
+        <option value="Chalatenango Sur">Chalatenango Sur</option>
+      </select>
+      
+      <label for="nombreDirector">Nombre del Director:</label>
+      <input type="text" id="nombreDirector" required>
+      
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" required>
+      
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required>
+      
+      <label for="motivoVisita">Motivo de la Visita:</label>
+      <textarea id="motivoVisita" required></textarea>
+      
+      <label for="tecnicoResponsable">Técnico Responsable de la visita:</label>
+      <input type="text" id="tecnicoResponsable" required>
+      
+      <label for="imagen1">Imagen 1 (JPEG o JPG):</label>
+      <input type="file" id="imagen1" accept=".jpg,.jpeg" required>
+      
+      <label for="imagen2">Imagen 2 (JPEG o JPG):</label>
+      <input type="file" id="imagen2" accept=".jpg,.jpeg" required>
+      
+      <input type="submit" value="Registrar Visita">
+    </form>
 
-  <div id="consulta" w-tid="59">
-    <h3 w-tid="60">Consultar Histórico de Bitácoras</h3>
-    <label for="fechaConsulta" w-tid="61">Fecha:</label>
-    <input type="date" id="fechaConsulta" w-tid="62">
-    <button type="button" id="consultarHistorico" w-tid="63">Consultar</button>
+    <div id="historico">
+      <h2>Histórico de Visitas</h2>
+      <label for="busquedaCodigo">Buscar por Código de Infraestructura:</label>
+      <input type="text" id="busquedaCodigo">
+      <label for="busquedaFecha">Buscar por Fecha:</label>
+      <input type="date" id="busquedaFecha">
+      <button onclick="buscarHistorico()">Buscar</button>
+      <button onclick="imprimirHistorico()">Imprimir Histórico</button>
+      <table id="tablaHistorico">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Centro Escolar</th>
+            <th>Fecha</th>
+            <th>Motivo</th>
+            <th>Técnico</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 
-  <div id="registros" w-tid="64">
-    <h3 w-tid="65">Visitas Registradas</h3>
-    <table id="tablaRegistros" w-tid="66">
-      <thead w-tid="67">
-        <tr w-tid="68">
-          <th w-tid="69">Código</th>
-          <th w-tid="70">Centro Escolar</th>
-          <th w-tid="71">Departamento</th>
-          <th w-tid="72">Municipio</th>
-          <th w-tid="73">Distrito</th>
-          <th w-tid="74">Director</th>
-          <th w-tid="75">Teléfono</th>
-          <th w-tid="76">Fecha</th>
-          <th w-tid="77">Motivo</th>
-          <th w-tid="78">Técnico</th>
-        </tr>
-      </thead>
-      <tbody w-tid="79"></tbody>
-    </table>
-  </div>
-
-  <button id="descargarSitio" w-tid="80">Descargar Sitio Completo</button>
-
-  <script type="text/javascript" src="https://us-assets.i.posthog.com/static/recorder.js?v=1.170.1"></script><script w-tid="81">
-    // Objeto para almacenar los municipios por departamento
-    const municipiosPorDepartamento = {
+  <script>
+    const departamentos = {
       'Ahuachapán': ['Ahuachapán', 'Apaneca', 'Atiquizaya', 'Concepción de Ataco', 'El Refugio', 'Guaymango', 'Jujutla', 'San Francisco Menéndez', 'San Lorenzo', 'San Pedro Puxtla', 'Tacuba', 'Turín'],
       'Cabañas': ['Cinquera', 'Dolores', 'Guacotecti', 'Ilobasco', 'Jutiapa', 'San Isidro', 'Sensuntepeque', 'Tejutepeque', 'Victoria'],
-      'Chalatenango': ['Agua Caliente', 'Arcatao', 'Azacualpa', 'Chalatenango', 'Citalá', 'Comalapa', 'Concepción Quezaltepeque', 'Dulce Nombre de María', 'El Carrizal', 'El Paraíso', 'La Laguna', 'La Palma', 'La Reina', 'Las Vueltas', 'Nueva Concepción', 'Nueva Trinidad', 'Ojos de Agua', 'Potonico', 'San Antonio de la Cruz', 'San Antonio Los Ranchos', 'San Fernando', 'San Francisco Lempa', 'San Francisco Morazán', 'San Ignacio', 'San Isidro Labrador', 'San José Cancasque', 'San José Las Flores', 'San Luis del Carmen', 'San Miguel de Mercedes', 'San Rafael', 'Santa Rita', 'Tejutla'],
-      // Añadir más departamentos y sus municipios aquí
+      'Chalatenango': ['Agua Caliente', 'Arcatao', 'Azacualpa', 'Chalatenango', 'Citalá', 'Comalapa', 'Concepción Quezaltepeque', 'Dulce Nombre de María', 'El Carrizal', 'El Paraíso', 'La Laguna', 'La Palma', 'La Reina', 'Las Vueltas', 'Nueva Concepción', 'Nueva Trinidad', 'Ojos de Agua', 'Potonico', 'San Antonio de la Cruz', 'San Antonio Los Ranchos', 'San Fernando', 'San Francisco Lempa', 'San Francisco Morazán', 'San Ignacio', 'San Isidro Labrador', 'San Luis del Carmen', 'San Miguel de Mercedes', 'San Rafael', 'Santa Rita', 'Tejutla'],
+      'Cuscatlán': ['Candelaria', 'Cojutepeque', 'El Carmen', 'El Rosario', 'Monte San Juan', 'Oratorio de Concepción', 'San Bartolomé Perulapía', 'San Cristóbal', 'San José Guayabal', 'San Pedro Perulapán', 'San Rafael Cedros', 'San Ramón', 'Santa Cruz Analquito', 'Santa Cruz Michapa', 'Suchitoto', 'Tenancingo'],
+      'La Libertad': ['Antiguo Cuscatlán', 'Chiltiupán', 'Ciudad Arce', 'Colón', 'Comasagua', 'Huizúcar', 'Jayaque', 'Jicalapa', 'La Libertad', 'Santa Tecla', 'Nuevo Cuscatlán', 'San Juan Opico', 'Quezaltepeque', 'Sacacoyo', 'San José Villanueva', 'San Matías', 'San Pablo Tacachico', 'Talnique', 'Tamanique', 'Teotepeque', 'Tepecoyo', 'Zaragoza'],
+      'La Paz': ['Cuyultitán', 'El Rosario', 'Jerusalén', 'Mercedes La Ceiba', 'Olocuilta', 'Paraíso de Osorio', 'San Antonio Masahuat', 'San Emigdio', 'San Francisco Chinameca', 'San Juan Nonualco', 'San Juan Talpa', 'San Juan Tepezontes', 'San Luis La Herradura', 'San Luis Talpa', 'San Miguel Tepezontes', 'San Pedro Masahuat', 'San Pedro Nonualco', 'San Rafael Obrajuelo', 'Santa María Ostuma', 'Santiago Nonualco', 'Tapalhuaca', 'Zacatecoluca'],
+      'La Unión': ['Anamorós', 'Bolívar', 'Concepción de Oriente', 'Conchagua', 'El Carmen', 'El Sauce', 'Intipucá', 'La Unión', 'Lislique', 'Meanguera del Golfo', 'Nueva Esparta', 'Pasaquina', 'Polorós', 'San Alejo', 'San José', 'Santa Rosa de Lima', 'Yayantique', 'Yucuaiquín'],
+      'Morazán': ['Arambala', 'Cacaopera', 'Chilanga', 'Corinto', 'Delicias de Concepción', 'El Divisadero', 'El Rosario', 'Gualococti', 'Guatajiagua', 'Joateca', 'Jocoaitique', 'Jocoro', 'Lolotiquillo', 'Meanguera', 'Osicala', 'Perquín', 'San Carlos', 'San Fernando', 'San Francisco Gotera', 'San Isidro', 'San Simón', 'Sensembra', 'Sociedad', 'Torola', 'Yamabal', 'Yoloaiquín'],
+      'San Miguel': ['Carolina', 'Chapeltique', 'Chinameca', 'Chirilagua', 'Ciudad Barrios', 'Comacarán', 'El Tránsito', 'Lolotique', 'Moncagua', 'Nueva Guadalupe', 'Nuevo Edén de San Juan', 'Quelepa', 'San Antonio del Mosco', 'San Gerardo', 'San Jorge', 'San Luis de la Reina', 'San Miguel', 'San Rafael Oriente', 'Sesori', 'Uluazapa'],
+      'San Salvador': ['Aguilares', 'Apopa', 'Ayutuxtepeque', 'Ciudad Delgado', 'Cuscatancingo', 'El Paisnal', 'Guazapa', 'Ilopango', 'Mejicanos', 'Nejapa', 'Panchimalco', 'Rosario de Mora', 'San Marcos', 'San Martín', 'San Salvador', 'Santiago Texacuangos', 'Santo Tomás', 'Soyapango', 'Tonacatepeque'],
+      'Santa Ana': ['Candelaria de la Frontera', 'Chalchuapa', 'Coatepeque', 'El Congo', 'El Porvenir', 'Masahuat', 'Metapán', 'San Antonio Pajonal', 'San Sebastián Salitrillo', 'Santa Ana', 'Santa Rosa Guachipilín', 'Santiago de la Frontera', 'Texistepeque'],
+      'San Vicente': ['Apastepeque', 'Guadalupe', 'San Cayetano Istepeque', 'San Esteban Catarina', 'San Ildefonso', 'San Lorenzo', 'San Sebastián', 'San Vicente', 'Santa Clara', 'Santo Domingo', 'Tecoluca', 'Tepetitán', 'Verapaz'],
+      'Sonsonate': ['Acajutla', 'Armenia', 'Caluco', 'Cuisnahuat', 'Izalco', 'Juayúa', 'Nahuizalco', 'Nahulingo', 'Salcoatitán', 'San Antonio del Monte', 'San Julián', 'Santa Catarina Masahuat', 'Santa Isabel Ishuatán', 'Santo Domingo de Guzmán', 'Sonsonate', 'Sonzacate'],
+      'Usulután': ['Alegría', 'Berlín', 'California', 'Concepción Batres', 'El Triunfo', 'Ereguayquín', 'Estanzuelas', 'Jiquilisco', 'Jucuapa', 'Jucuarán', 'Mercedes Umaña', 'Nueva Granada', 'Ozatlán', 'Puerto El Triunfo', 'San Agustín', 'San Buenaventura', 'San Dionisio', 'San Francisco Javier', 'Santa Elena', 'Santa María', 'Santiago de María', 'Tecapán', 'Usulután']
     };
 
-    // Función para actualizar los municipios basados en el departamento seleccionado
-    function actualizarMunicipios() {
-      const departamento = document.getElementById('departamento').value;
+    document.getElementById('departamento').addEventListener('change', function() {
       const municipioSelect = document.getElementById('municipio');
       municipioSelect.innerHTML = '<option value="">Seleccione un municipio</option>';
       
-      if (municipiosPorDepartamento[departamento]) {
-        municipiosPorDepartamento[departamento].forEach(municipio => {
-          const option = document.createElement('option');
-          option.value = municipio;
-          option.textContent = municipio;
-          municipioSelect.appendChild(option);
-        });
-      }
-    }
+      const municipios = departamentos[this.value] || [];
+      municipios.forEach(function(municipio) {
+        const option = document.createElement('option');
+        option.value = municipio;
+        option.textContent = municipio;
+        municipioSelect.appendChild(option);
+      });
+    });
 
-    document.getElementById('departamento').addEventListener('change', actualizarMunicipios);
+    let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
 
     document.getElementById('registroVisita').addEventListener('submit', function(e) {
       e.preventDefault();
-      guardarVisita();
-    });
-
-    function guardarVisita() {
+      
       const visita = {
         codigo: document.getElementById('codigoCentro').value,
         nombre: document.getElementById('nombreCentro').value,
@@ -218,120 +209,67 @@
         telefono: document.getElementById('telefono').value,
         fecha: document.getElementById('fecha').value,
         motivo: document.getElementById('motivoVisita').value,
-        tecnico: document.getElementById('tecnicoResponsable').value
+        tecnico: document.getElementById('tecnicoResponsable').value,
+        imagen1: document.getElementById('imagen1').files[0] ? document.getElementById('imagen1').files[0].name : '',
+        imagen2: document.getElementById('imagen2').files[0] ? document.getElementById('imagen2').files[0].name : ''
       };
       
-      let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
       visitas.push(visita);
       localStorage.setItem('visitas', JSON.stringify(visitas));
-      
-      actualizarTabla();
-      document.getElementById('registroVisita').reset();
-    }
+      actualizarHistorico();
+      this.reset();
+    });
 
-    function actualizarTabla() {
-      const tabla = document.getElementById('tablaRegistros').getElementsByTagName('tbody')[0];
+    function actualizarHistorico() {
+      const tabla = document.getElementById('tablaHistorico').getElementsByTagName('tbody')[0];
       tabla.innerHTML = '';
       
-      let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
-      visitas.forEach(visita => {
+      visitas.forEach(function(visita) {
         const fila = tabla.insertRow();
-        for (let prop in visita) {
-          const celda = fila.insertCell();
-          celda.textContent = visita[prop];
-        }
+        fila.insertCell().textContent = visita.codigo;
+        fila.insertCell().textContent = visita.nombre;
+        fila.insertCell().textContent = visita.fecha;
+        fila.insertCell().textContent = visita.motivo;
+        fila.insertCell().textContent = visita.tecnico;
       });
     }
 
-    document.getElementById('modificar').addEventListener('click', function() {
-      const codigo = document.getElementById('codigoCentro').value;
-      let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
-      const index = visitas.findIndex(v => v.codigo === codigo);
+    function buscarHistorico() {
+      const codigo = document.getElementById('busquedaCodigo').value.toLowerCase();
+      const fecha = document.getElementById('busquedaFecha').value;
       
-      if (index !== -1) {
-        visitas[index] = {
-          codigo: document.getElementById('codigoCentro').value,
-          nombre: document.getElementById('nombreCentro').value,
-          departamento: document.getElementById('departamento').value,
-          municipio: document.getElementById('municipio').value,
-          distrito: document.getElementById('distrito').value,
-          director: document.getElementById('nombreDirector').value,
-          telefono: document.getElementById('telefono').value,
-          fecha: document.getElementById('fecha').value,
-          motivo: document.getElementById('motivoVisita').value,
-          tecnico: document.getElementById('tecnicoResponsable').value
-        };
-        localStorage.setItem('visitas', JSON.stringify(visitas));
-        actualizarTabla();
-      } else {
-        alert('No se encontró una visita con ese código.');
-      }
-    });
-
-    document.getElementById('eliminar').addEventListener('click', function() {
-      const codigo = document.getElementById('codigoCentro').value;
-      let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
-      visitas = visitas.filter(v => v.codigo !== codigo);
-      localStorage.setItem('visitas', JSON.stringify(visitas));
-      actualizarTabla();
-      document.getElementById('registroVisita').reset();
-    });
-
-    document.getElementById('imprimir').addEventListener('click', function() {
-      const codigo = document.getElementById('codigoCentro').value;
-      let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
-      const historicoVisitas = visitas.filter(v => v.codigo === codigo);
+      const visitasFiltradas = visitas.filter(function(visita) {
+        return (codigo === '' || visita.codigo.toLowerCase().includes(codigo)) &&
+               (fecha === '' || visita.fecha === fecha);
+      });
       
-      if (historicoVisitas.length > 0) {
-        let ventanaImpresion = window.open('', '_blank');
-        ventanaImpresion.document.write('<html><head><title>Histórico de Visitas</title>');
-        ventanaImpresion.document.write('<style>table {border-collapse: collapse;} th, td {border: 1px solid black; padding: 5px;}</style>');
-        ventanaImpresion.document.write('</head><body>');
-        ventanaImpresion.document.write('<h1>Histórico de Visitas - Código: ' + codigo + '</h1>');
-        ventanaImpresion.document.write('<table>');
-        ventanaImpresion.document.write('<tr><th>Fecha</th><th>Motivo</th><th>Técnico</th></tr>');
-        historicoVisitas.forEach(v => {
-          ventanaImpresion.document.write('<tr><td>' + v.fecha + '</td><td>' + v.motivo + '</td><td>' + v.tecnico + '</td></tr>');
-        });
-        ventanaImpresion.document.write('</table>');
-        ventanaImpresion.document.write('</body></html>');
-        ventanaImpresion.document.close();
-        ventanaImpresion.print();
-      } else {
-        alert('No se encontraron visitas para este código.');
-      }
-    });
-
-    document.getElementById('consultarHistorico').addEventListener('click', function() {
-      const fecha = document.getElementById('fechaConsulta').value;
-      let visitas = JSON.parse(localStorage.getItem('visitas')) || [];
-      const visitasFecha = visitas.filter(v => v.fecha === fecha);
-      
-      const tabla = document.getElementById('tablaRegistros').getElementsByTagName('tbody')[0];
+      const tabla = document.getElementById('tablaHistorico').getElementsByTagName('tbody')[0];
       tabla.innerHTML = '';
       
-      visitasFecha.forEach(visita => {
+      visitasFiltradas.forEach(function(visita) {
         const fila = tabla.insertRow();
-        for (let prop in visita) {
-          const celda = fila.insertCell();
-          celda.textContent = visita[prop];
-        }
+        fila.insertCell().textContent = visita.codigo;
+        fila.insertCell().textContent = visita.nombre;
+        fila.insertCell().textContent = visita.fecha;
+        fila.insertCell().textContent = visita.motivo;
+        fila.insertCell().textContent = visita.tecnico;
       });
-    });
+    }
 
-    document.getElementById('descargarSitio').addEventListener('click', function() {
-      const contenido = document.documentElement.outerHTML;
-      const blob = new Blob([contenido], {type: 'text/html'});
-      const enlaceDescarga = document.createElement('a');
-      enlaceDescarga.href = URL.createObjectURL(blob);
-      enlaceDescarga.download = 'gestion_centros_educativos.html';
-      enlaceDescarga.click();
-    });
+    function imprimirHistorico() {
+      const contenidoImprimir = document.getElementById('tablaHistorico').outerHTML;
+      const ventanaImprimir = window.open('', '_blank');
+      ventanaImprimir.document.write('<html><head><title>Histórico de Visitas</title>');
+      ventanaImprimir.document.write('<style>table { border-collapse: collapse; width: 100%; } th, td { border: 1px solid black; padding: 8px; text-align: left; }</style>');
+      ventanaImprimir.document.write('</head><body>');
+      ventanaImprimir.document.write('<h1>Histórico de Visitas a Centros Educativos</h1>');
+      ventanaImprimir.document.write(contenidoImprimir);
+      ventanaImprimir.document.write('</body></html>');
+      ventanaImprimir.document.close();
+      ventanaImprimir.print();
+    }
 
-    // Cargar visitas guardadas al iniciar
-    window.onload = function() {
-      actualizarTabla();
-    };
+    actualizarHistorico();
   </script>
-
-</body></html>
+</body>
+</html>
